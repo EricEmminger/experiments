@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookmarks
   devise_for :users
   get 'site/index'
   get 'site/test'
