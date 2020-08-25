@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :profiles
       resources :reactions
       resources :subscriptions
+      resources :syndications
     end
   end
 end
