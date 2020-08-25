@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Guid:</strong>
+  <%= @item.guid %>
+</p>
+
+<p>
+  <strong>External url:</strong>
+  <%= @item.external_url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @item.summary %>
+</p>
+
+<p>
+  <strong>Updated:</strong>
+  <%= @item.updated %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @item.published %>
+</p>
+
+<p>
+  <strong>Content html:</strong>
+  <%= @item.content_html %>
+</p>
+
+<p>
+  <strong>Content text:</strong>
+  <%= @item.content_text %>
+</p>
+
+<p>
+  <strong>Authors:</strong>
+  <%= @item.authors %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @item.tags %>
+</p>
+
+<p>
+  <strong>Attachments:</strong>
+  <%= @item.attachments %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

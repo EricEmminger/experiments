@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :bookmarks
   devise_for :users
   resources :feeds
+  resources :items
   root 'site#index'
   get 'site/index'
   get 'site/test'
