@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :items
       resources :profiles
       resources :reactions
+      resources :subscriptions
     end
   end
 end
