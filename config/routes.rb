@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :bookmarks
       resources :feeds
       resources :items
+      resources :profiles
     end
   end
 end
