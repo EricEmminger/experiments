@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :feeds
       resources :items
       resources :profiles
+      resources :reactions
     end
   end
 end
