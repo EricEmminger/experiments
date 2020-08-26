@@ -54,3 +54,22 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.7.1"
+
+# The only strictly-required gem
+gem 'graphiti', '~> 1.2'
+gem 'graphiti-rails', '~> 0.1'
+
+# For automatic ActiveRecord pagination
+gem 'kaminari'
+
+# Test-specific gems
+group :development, :test do
+  # gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'graphiti_spec_helpers'
+end
+
+group :test do
+  gem 'database_cleaner'
+end
