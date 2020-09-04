@@ -20,7 +20,7 @@ class ItemResource < ApplicationResource
 
   filter :profile_id, :integer do |scope, value|
     eq do |scope, value|
-      scope.joins(feeds: :subscriptions).where(feeds: {subscriptions: {profile_id: value}})
+      scope.joins(feeds: :subscriptions).distinct.where(feeds: {subscriptions: {profile_id: value}}).where.not(published: nil)
     end
   end
 
