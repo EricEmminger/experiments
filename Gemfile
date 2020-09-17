@@ -55,6 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.7.1"
 gem 'feedparser', '~> 2.2'
+gem 'rack-cors'
 
 # The only strictly-required gem
 gem 'graphiti', '~> 1.2'

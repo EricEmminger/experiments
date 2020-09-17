@@ -15,5 +15,10 @@ module Experiments
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.debug_exception_response_format = :api
+    config.action_controller.forgery_protection_origin_check = false
+    config.session_store :cookie_store, domain: :all, tld_length: 2, key: '_experiments_session', httponly: false, secure: false, path: '/'
+    config.hosts << "api.spa.test"
   end
 end
