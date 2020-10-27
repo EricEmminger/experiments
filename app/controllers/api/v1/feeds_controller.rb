@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 module Api
   module V1
+    # FeedsController
     class FeedsController < ApiController
+      # after_action :parse_feed, only: [:create]
       def index
         feeds = FeedResource.all(params)
         respond_with(feeds)
@@ -16,6 +20,7 @@ module Api
 
         if feed.save
           render jsonapi: feed, status: 201
+          # ParseFeedJob.perform_later(feed) unless feed.url.starts_with?('/')
         else
           render jsonapi_errors: feed
         end
@@ -40,6 +45,12 @@ module Api
           render jsonapi_errors: feed
         end
       end
+
+      # private
+
+      # def parse_feed
+      #   ParseFeedJob.perform_later(feed) unless feed.url.starts_with?('/')
+      # end
     end
   end
 end
