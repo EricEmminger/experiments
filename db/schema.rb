@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_230707) do
+ActiveRecord::Schema.define(version: 2020_10_11_081048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_07_30_230707) do
     t.text "tags"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id"
+    t.index ["profile_id"], name: "index_feeds_on_profile_id"
     t.index ["url"], name: "index_feeds_on_url", unique: true
   end
 
@@ -55,7 +57,9 @@ ActiveRecord::Schema.define(version: 2020_07_30_230707) do
     t.text "attachments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id"
     t.index ["guid"], name: "index_items_on_guid", unique: true
+    t.index ["profile_id"], name: "index_items_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -129,6 +133,8 @@ ActiveRecord::Schema.define(version: 2020_07_30_230707) do
   end
 
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "feeds", "profiles"
+  add_foreign_key "items", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "reactions", "items"
   add_foreign_key "reactions", "profiles"
