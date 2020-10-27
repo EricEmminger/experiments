@@ -1,9 +1,13 @@
-class SubscriptionResource < ApplicationResource
-  belongs_to :profile
-  belongs_to :feed
+# frozen_string_literal: true
 
-  attribute :profile_id, :integer
-  attribute :feed_id, :integer
-  attribute :notify, :boolean
+# SubscriptionResource
+class SubscriptionResource < ApplicationResource
+  attribute :created_at, :datetime, writable: false
+  attribute :feed_id, :integer, only: [:filterable]
   attribute :mute, :boolean
+  attribute :notify, :boolean
+  attribute :profile_id, :integer, only: [:filterable]
+  attribute :updated_at, :datetime, writable: false
+  belongs_to :feed
+  belongs_to :profile
 end

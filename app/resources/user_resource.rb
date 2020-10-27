@@ -8,8 +8,6 @@ class UserResource < ApplicationResource
   self.attributes_sortable_by_default = false # default true
   # self.attributes_schema_by_default = false # default true
 
-  has_many :profiles
-
   attribute :created_at, :datetime, writable: false
   attribute :current_sign_in_at, :datetime
   attribute :current_sign_in_ip, :string
@@ -17,6 +15,7 @@ class UserResource < ApplicationResource
   attribute :last_sign_in_at, :datetime
   attribute :last_sign_in_ip, :string
   attribute :updated_at, :datetime, writable: false
+  has_many :profiles
 
   def base_scope
     User.where(id: current_user)
