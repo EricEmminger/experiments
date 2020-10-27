@@ -1,8 +1,6 @@
 module Api
   module V1
     class BookmarksController < ApiController
-      before_action :authenticate_user!
-
       def index
         bookmarks = BookmarkResource.all(params)
         respond_with(bookmarks)
