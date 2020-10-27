@@ -21,6 +21,7 @@
     <div>
       <%= link_to 'Home', root_path %>
       <%= link_to 'Bookmarks', bookmarks_path %>
+      <%= link_to 'Jobs', '/jobs' %>
       <%= link_to 'site/test', site_test_path %>
       <% if user_signed_in? %>
         Signed in as <%= current_user.email %>
@@ -33,7 +34,8 @@
     <hr>
     <%= content_for?(:content) ? yield(:content) : yield %>
     <hr>
-    <p>user_session: <%= user_session %></p>
+    <p>session: <%#= session.to_json %></p>
+    <p>user_session: <%#= user_session %></p>
     <hr>
   </body>
 </html>

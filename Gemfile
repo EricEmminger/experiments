@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -18,60 +20,65 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-# Reduces boot times through caching; required in config/boot.rb
+# Reduce boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # Add test-specific gems for graphiti
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'graphiti_spec_helpers'
+  # gem 'rspec-rails'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  # Enable ActiveSupport::EventedFileUpdateChecker with listen
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Lint and format with rubocop
+  gem 'rubocop', '~> 0.92.0', require: false
+  # Provide language server with solargraph
+  gem 'solargraph' # , group: :development
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
+  # Add support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  # Clean database
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "devise", "~> 4.7.1"
+# Authenticate users with devise
+gem 'devise', '~> 4.7.1'
+# Parse feeds with feedparser
 gem 'feedparser', '~> 2.2'
+# Allow CORS
 gem 'rack-cors'
-
-# The only strictly-required gem
+# Build API with graphiti
 gem 'graphiti', '~> 1.2'
 gem 'graphiti-rails', '~> 0.1'
-
 # For automatic ActiveRecord pagination
 gem 'kaminari'
-
-# Test-specific gems
-group :development, :test do
-  # gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'graphiti_spec_helpers'
-end
-
-group :test do
-  gem 'database_cleaner'
-end
+# Use Resque for Active Job
+gem 'resque'
+# Add validates url helpers
+gem 'validate_url'
