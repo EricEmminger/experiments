@@ -2,9 +2,7 @@
   "name": "quasar",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
-  "cordovaId": "org.cordova.quasar.app",
-  "capacitorId": "",
+  "productName": "SPA",
   "author": "Eric Emminger <EricEmminger@gmail.com>",
   "private": true,
   "scripts": {
@@ -12,22 +10,27 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
-    "@vue/composition-api": "^0.5.0",
-    "axios": "^0.18.1",
-    "quasar": "^1.9.5",
+    "@quasar/extras": "^1.9.9",
+    "@vue/composition-api": "^1.0.0-beta.17",
+    "axios": "^0.20.0",
+    "core-js": "^3.0.0",
+    "quasar": "^1.14.1",
+    "spraypaint": "^0.10.22",
+    "uuid": "^8.3.1",
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {
-    "@quasar/app": "^1.6.2",
-    "@types/node": "^10.17.15",
-    "@typescript-eslint/eslint-plugin": "^2.17.0",
-    "@typescript-eslint/parser": "^2.17.0",
+    "@quasar/app": "^2.0.0",
+    "@types/node": "^14.11.2",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
     "babel-eslint": "^10.0.1",
-    "eslint": "^6.8.0",
+    "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.9.0",
-    "eslint-loader": "^3.0.3",
-    "eslint-plugin-vue": "^6.1.2"
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-vue": "^7.1.0",
+    "workbox-webpack-plugin": "^5.0.0"
   },
   "engines": {
     "node": ">= 10.18.1",
@@ -35,9 +38,15 @@
     "yarn": ">= 1.21.1"
   },
   "browserslist": [
-    "last 1 version, not dead, ie >= 11"
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
   ],
-  "resolutions": {
-    "@babel/parser": "7.7.5"
-  }
+  "resolutions": {}
 }
